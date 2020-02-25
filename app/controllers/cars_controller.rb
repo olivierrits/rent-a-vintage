@@ -1,11 +1,10 @@
 class CarsController < ApplicationController
   def index
-    @car = Car.find
+    @car = Car.all
   end
 
   def show
     @car = Car.find(params[:id])
-    @ride = Ride.new
   end
 
   def new
@@ -28,14 +27,12 @@ class CarsController < ApplicationController
     @car = Car.find(params[:id])
     @car.update(car_params)
     redirect_to car_path(@car)
-
   end
 
   def destroy
     @car = Car.find(params[:id])
     @car.destroy
     redirect_to car_path
-
   end
 
   private

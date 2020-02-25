@@ -21,6 +21,9 @@
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
+    <%= f.input :first_name, input_html: { :value => current_user.first_name } %>
+    <%= f.input :last_name, input_html: { :value => current_user.last_name } %>
+    <%= f.input :license_number, input_html: { :value => current_user.license_number } %>
   </div>
 
   <div class="form-actions">

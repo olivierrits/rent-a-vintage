@@ -1,3 +1,19 @@
 <div class="container">
   <h1>Edit <%= @car.name %> </h1>
+
+  <%= simple_form_for @car do |f| %>
+    <%= f.input :name, input_html: { :value => @car.name } %>
+    <%= f.input :brand, input_html: { :value => @car.brand } %>
+    <%= f.input :model, input_html: { :value => @car.model } %>
+    <%= f.input :year, input_html: { :value => @car.year } %>
+    <%= f.input :description, input_html: { :value => @car.description } %>
+    <%= f.input :price, input_html: { :value => @car.price } %>
+    <%#= f.input :availabilty, as: :array %>
+    <%= f.submit "Update your car", class: "btn btn-primary" %>
+  <% end %>
+
+  <div class="small" style="margin: 16px 0;">
+    <%= link_to "Go back to the car list without saving", cars_path, class: "btn-primary" %>
+  </div>
+
 </div>

@@ -1,24 +1,23 @@
 <div class="container">
 
-  <div class="banner" style="padding:15px; text-align:center;">
+  <div class="form" style="padding:15px; text-align:center;">
       <h1>Add a new car</h1>
       <p>Please fill in all the fields and click "Add a car". </p>
   </div>
 
   <%= simple_form_for @car do |f| %>
-    <%= f.input :name %>
-    <%= f.input :brand %>
-    <%= f.input :model %>
-    <%= f.input :year %>
-    <%= f.input :description %>
-    <%= f.input :price %>
+    <%= f.input :name, input_html: { :value => @car.name } %>
+    <%= f.input :brand, input_html: { :value => @car.brand } %>
+    <%= f.input :model, input_html: { :value => @car.model } %>
+    <%= f.input :year, input_html: { :value => @car.year } %>
+    <%= f.input :description, input_html: { :value => @car.description } %>
+    <%= f.input :price, input_html: { :value => @car.price } %>
     <%#= f.input :availabilty, as: :array %>
-    <%= f.submit "Add a car", class: "btn btn-primary" %>
+    <%= f.submit "Add a car", class: "btn btn-update" %>
   <% end %>
 
-  <div class="small" style="margin: 16px 0;">
+  <div class="btn btn-update" style="margin: 16px 0;">
     <%= link_to "Go back to the car list without saving", cars_path %>
   </div>
 
 </div>
-

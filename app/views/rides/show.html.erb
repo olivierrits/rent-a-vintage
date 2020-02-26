@@ -3,9 +3,15 @@
 
   <h2>Your trip details:</h2>
 
-  <p>Start Date: <%= @ride.start_date %></p> | <p>End Date: <%= @ride.end_date %></p>
+  <p>Start Date: <%= "#{@ride.start_date} | End Date: #{@ride.end_date}" %></p>
 
   <h3><strong><%= @ride.car.name %></strong></h3>
 
   <p><%= @ride.car.description %></p>
 </div>
+
+<%= link_to "Edit this ride", edit_ride_path(@ride), class: "btn-primary" %>
+<br><hr><br>
+<%= link_to raw('<i class="fas fa-trash-alt"></i>'), ride_path(@ride), method: :delete %>
+<br><hr><br>
+<%= link_to "Ride List", rides_path %>

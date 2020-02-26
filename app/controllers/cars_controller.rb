@@ -5,6 +5,13 @@ class CarsController < ApplicationController
 
   def show
     @car = Car.find(params[:id])
+    start_date1 = Time.new(2020,3,3).to_date
+    end_date1 = Time.new(2020,3,5).to_date
+    start_date2 = Time.new(2020,3,10).to_date
+    end_date2 = Time.new(2020,3,15).to_date
+    @ride1 = Ride.new(start_date: start_date1, end_date: end_date1, distance: 0, car: @car, user: User.last);
+    @ride2 = Ride.new(start_date: start_date2, end_date: end_date2, distance: 0, car: @car, user: User.last);
+    @rides = [ @ride1, @ride2 ]
   end
 
   def new

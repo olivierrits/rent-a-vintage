@@ -31,8 +31,13 @@ class CarsController < ApplicationController
 
   def destroy
     @car = Car.find(params[:id])
-    @car.destroy
-    redirect_to car_path
+    if @car.user == current_user
+      alert("Are you sure you want to remove this car?")
+      @car.destroy
+    else
+      alert("You are not authenticated for this action")
+    end
+    redirect_to cars_path
   end
 
   private

@@ -24,5 +24,12 @@
   </tr>
 </table>
 
+<br><hr>
+<%= link_to "Edit the car", edit_car_path(@car), class: "btn-primary" %>
+<br><hr><br>
+<%= link_to raw('<i class="fas fa-trash-alt"></i>'), car_path(@car), method: :delete %>
+<br><hr><br>
+<%= link_to "Car List", cars_path %>
+
 
 

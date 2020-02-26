@@ -1,2 +1,26 @@
-<h1>Users#dashboard</h1>
-<p>Find me in app/views/users/dashboard.html.erb</p>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/12/05134339/Andrea-Casano-rare-Fiat-600s-meetup-44-1000x666.jpg);">
+</div>
+
+<div class="container">
+  <h1>Users#dashboard</h1>
+
+  <div class="row">
+    <% @cars.each do |car| %>
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
+          <div class="card-description">
+            <h2><%= link_to car.name, car_path(car) %></h2>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+</div>
+
+
+
+
+
+

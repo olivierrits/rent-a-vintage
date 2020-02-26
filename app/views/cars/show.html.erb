@@ -1,28 +1,46 @@
 
 <h1><%= @car.name %></h1>
 
-<table>
-  <tr>
-    <th>Brand</th>
-    <td><%= @car.brand %></td>
-  </tr>
-  <tr>
-    <th>Model</th>
-    <td><%= @car.model %></td>
-  </tr>
-  <tr>
-    <th>Year</th>
-    <td><%= @car.year %></td>
-  </tr>
-  <tr>
-    <th>Description</th>
-    <td><%= @car.description %></td>
-  </tr>
-  <tr>
-    <th>Price</th>
-    <td><%= @car.price %></td>
-  </tr>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-lg-6">
+      <table>
+        <tr>
+          <th>Brand</th>
+          <td><%= @car.brand %></td>
+        </tr>
+        <tr>
+          <th>Model</th>
+          <td><%= @car.model %></td>
+        </tr>
+        <tr>
+          <th>Year</th>
+          <td><%= @car.year %></td>
+        </tr>
+        <tr>
+          <th>Description</th>
+          <td><%= @car.description %></td>
+        </tr>
+        <tr>
+          <th>Price</th>
+          <td><%= @car.price %></td>
+        </tr>
+      </table>
+    </div>
+    <div class="col-sm-12 col-lg-6">
+      <%= month_calendar events: @rides do |date, rides| %>
+        <div class="day-cell">
+          <%= link_to date.day, "#" %>
+          <% @rides.each do |ride| %>
+            <% if (ride.start_date < date) && date < ride.end_date %>
+              <div style="color: red;">X</div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
 <br><hr>
 <%= link_to "Edit the car", edit_car_path(@car), class: "btn-primary" %>

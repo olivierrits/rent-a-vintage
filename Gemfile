@@ -30,3 +30,4 @@ end
 
 gem 'devise'
 gem 'faker'
+gem "simple_calendar", "~> 2.0"

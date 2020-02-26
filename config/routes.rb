@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :rides, only: [ :new, :create ]
   end
 
-  resources :rides, only: [ :show ]
+  resources :rides, only: [ :new, :create, :show, :edit, :update, :destroy ]
 
 end

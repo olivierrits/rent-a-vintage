@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Edit your ride </h1>
+
+  <%= simple_form_for @ride do |f| %>
+    <%= f.input :start_date, input_html: { :value => @ride.start_date } %>
+    <%= f.input :end_date, input_html: { :value => @ride.end_date } %>
+    <%= f.input :car, input_html: { :value => @ride.car } %>
+    <%= f.submit "Update your ride", class: "btn btn-primary" %>
+  <% end %>
+
+  <div class="small" style="margin: 16px 0;">
+    <%= link_to "Go back to the ride list without saving", cars_path, class: "btn-primary" %>
+  </div>
+
+</div>

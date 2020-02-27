@@ -1,0 +1,91 @@
+.simple-calendar {
+
+  tr {
+    height: 25px !important;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  th, td {
+    margin: 1px !important;
+    padding: 1px 1px !important;
+    text-align: center;
+    vertical-align: center;
+    width: 40px;
+    overflow: hidden;
+    display: inline-block;
+    white-space: nowrap;
+  }
+
+  .day {
+  }
+
+  .wday-0 {}
+  .wday-1 {}
+  .wday-2 {}
+  .wday-3 {}
+  .wday-4 {}
+  .wday-5 {}
+  .wday-6 {}
+
+  .today {}
+  .past {}
+  .future {}
+
+  .start-date {}
+
+  .prev-month {}
+  .next-month { }
+  .current-month {}
+
+  .has-events {}
+}
+
+.calendar-body {
+
+}
+
+.calendar-heading {
+  display: flex;
+  height: 30px;
+  margin: 2px;
+  justify-content: space-around;
+  align-items: center;
+  font-style: italic;
+  color: lightgray;
+  padding: 0px !important;
+  background-color: steelblue;
+}
+
+.calendar-heading a {
+  color: lightgrey;
+}
+
+.calendar-title {
+  font-weight: bold;
+  font-style: normal;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.calendar-row-heading {
+  width: 40px;
+  padding: 0px !important;
+}
+
+.calendar-cell {
+  width: 40px;
+  padding: 0px !important;
+}
+
+.calendar-off {
+  text-align: center;
+  color: slategrey;
+  font-style: italic;
+}
+
+.calendar-off  a {
+  text-align: center;
+  color: slategrey;
+  font-style: italic;
+}

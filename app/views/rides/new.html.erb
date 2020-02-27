@@ -6,9 +6,9 @@
   </div>
 
   <%= simple_form_for @ride do |f| %>
-    <%= f.association :car %>
-    <%= f.input :start_date %>
-    <%= f.input :end_date %>
+    <%= f.association :car, :selected => @car.id, disabled: true %>
+    <%= f.input :start_date, :selected => @start_date, disabled: false %>
+    <%= f.input :end_date, :selected => @start_date, disabled: false %>
     <%= f.submit "Confirm your ride", class: "btn btn-primary" %>
   <% end %>
 

@@ -1,9 +1,7 @@
-
-<h1><%= @car.name %></h1>
-
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-lg-8">
+      <h2><%= @car.name %></h2>
       <table>
         <tr>
           <th>Brand</th>
@@ -28,11 +26,12 @@
       </table>
     </div>
     <div>
+      <h4>Availability</h4>
       <% i = 0 %>
       <%= month_calendar events: @rides do |date, rides| %>
         <% available = false  %>
         <% @rides.each do |ride| %>
-          <% if (ride.start_date < date) && date < ride.end_date %>
+          <% if (ride.start_date <= date) && date <= ride.end_date %>
             <% available = true %>
           <% end %>
         <% end %>
@@ -50,16 +49,26 @@
           </div>
         <% else %>
           <div class="day-cell" style="text-align: center" >
-            <%= link_to date.day, "/cars/#{@car.id}?#{date}" %>
+            <%= link_to date.day, "../rides/new?car_id=#{@car.id}&start_date=#{date}" %>
           </div>
         <% end %>
         <% i += 1 %>
       <% end %>
+      <hr>
+      <div>
+        <%= simple_form_for @ride, { :url => rides_path, :method => 'post' } do |f| %>
+          <%= f.input :car_id, :as => :hidden, :input_html => { :value => @car.id } %>
+          <%= f.input :start_date %>
+          <%= f.input :end_date %>
+          <%= f.submit "Book your ride now!", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <div class="small" style="margin: 16px 0;">
+        <%= link_to "Go back to your rides without saving", rides_path %>
+      </div>
     </div>
   </div>
 </div>
-
-<p><%= "i = #{i}" %></p>
 
 <br><hr>
 <%= link_to "Edit the car", edit_car_path(@car), class: "btn-primary" %>

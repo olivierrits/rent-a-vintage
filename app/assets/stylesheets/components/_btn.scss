@@ -17,6 +17,7 @@
 
 .btn-update {
   color: #525349;
+
   border: 3px solid #d8d2c3;
   padding: 6px 24px;
   border-radius: 1px;
@@ -25,10 +26,11 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-update:hover {
-  opacity: 1;
-  color: #b11c26
-}
+.btn-update {
+   opacity: 1;
+   // color: inherit !important;
+    color: #b11c26;
+ }
 
 .btn-delete {
   color: #525349;

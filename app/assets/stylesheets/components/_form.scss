@@ -10,7 +10,6 @@
 .form-title h1 {
   margin: 0;
   color: #525349;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
   text-align: center;
@@ -20,7 +19,6 @@
   font-size: 16px;
   color: #525349;
   opacity: 1;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .background-form {
@@ -65,6 +63,7 @@
   cursor: pointer;
   color: white;
   background-color: #b11c26;
+  border: 3px solid white;
   .btn-update {
    opacity: 1;
    // color: inherit !important;

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :cars do
     resources :rides, only: [ :new, :create ]
+    resources :reviews, only: [ :new, :create ]
   end
 
   resources :rides, only: [ :new, :create, :show, :edit, :update, :destroy ]

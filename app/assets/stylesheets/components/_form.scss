@@ -7,18 +7,67 @@
   opacity: 0.9;
 }
 
-.form h1 {
+.form-title h1 {
   margin: 0;
-  color: white;
+  color: #525349;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
   text-align: center;
 }
 
-.form p {
-  font-size: 20px;
-  color: white;
+.form-title p {
+  font-size: 16px;
+  color: #525349;
   opacity: 1;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+
+.background-form {
+  background-image : url("https://ccnwordpress.blob.core.windows.net/journal/2019/05/Zagato-Petrolicious.jpg");
+  background-size: cover;
+  background-position: 25% 75%;
+  padding-top: 10vw;
+  padding-bottom: 10vw;
+}
+
+.form-square a {
+  color: inherit !important;
+}
+.form-square a:hover {
+  color: inherit !important;
+  text-decoration: none !important;
+}
+.form-square {
+  background-color: white;
+  opacity: 0.9;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding: 5vh 9vw;
+}
+
+.form-button {
+  font-weight: bolder;
+  border: 3px solid #d8d2c3;
+  padding: 1vw;
+  margin-top: 2vw;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: normal;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+.form-button:hover {
+  opacity: 1;
+  cursor: pointer;
+  color: white;
+  background-color: #b11c26;
+  .btn-update {
+   opacity: 1;
+   // color: inherit !important;
+    color: white;
+ }
 }

@@ -8,10 +8,19 @@
   <h3><strong><%= @ride.car.name %></strong></h3>
 
   <p><%= @ride.car.description %></p>
-</div>
 
-<%= link_to "Edit this ride", edit_ride_path(@ride), class: "btn-primary" %>
-<br><hr><br>
-<%= link_to raw('<i class="fas fa-trash-alt"></i>'), ride_path(@ride), method: :delete %>
-<br><hr><br>
-<%= link_to "Ride List", rides_path %>
+    <h2>Where to find your car:</h2>
+    <p><%= @ride.car.address %></p>
+    <div
+      id="map"
+      style="width: 100%;
+      height: 600px;"
+      data-markers="<%= [@marker].to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
+      <%= link_to "Modify the dates for this ride", edit_ride_path(@ride), class: "btn btn-primary" %>
+      <br><hr><br>
+      <%= link_to raw('<i class="fas fa-trash-alt"></i>'), ride_path(@ride), method: :delete %>
+      <br><hr><br>
+      <%= link_to "Ride List", rides_path %>
+</div>

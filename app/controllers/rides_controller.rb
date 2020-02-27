@@ -14,6 +14,14 @@ class RidesController < ApplicationController
 
   def show
     @ride = Ride.find(params[:id])
+    @car = @ride.car #returns flats with coordinates
+    @marker = {
+        lat: @car.latitude,
+        lng: @car.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { car: @car }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
+
   end
 
   def create

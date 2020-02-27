@@ -15,7 +15,8 @@ car1 = Car.new(
     model: 'Coccinelle',
     year: 1965,
     price: 100,
-    description: 'little amazing car' }
+    description: 'little amazing car',
+    address: 'Rue Haute 179, 1000 Bruxelles' }
 )
 
 car2 = Car.new(
@@ -24,7 +25,8 @@ car2 = Car.new(
     model: '2CV',
     year: 1974,
     price: 90,
-    description: 'ideal picnic car' }
+    description: 'ideal picnic car',
+    address: 'Rue Gheude 56, 1070 Anderlecht' }
 )
 
 car3 = Car.new(
@@ -33,7 +35,8 @@ car3 = Car.new(
     model: 'Spitfire',
     year: 1978,
     price: 120,
-    description: 'perfect roadster' }
+    description: 'perfect roadster',
+    address: 'Rue Dieudonné Lefèvre 37, 1020 Bruxelles' }
 )
 
 car1.user = user
@@ -64,6 +67,7 @@ User.all.each do |user|
       brand: Faker::Vehicle.make,
       model: Faker::Vehicle.model,
       year: rand(1940..2000),
+      address: ["Rue Scarron 50, 1050 Ixelles", "Avenue Paul Dejaer 29, 1060 Brussels", "Avenue Van Volxem 354, 1190 Forest", "Rue de la Régence 3, 1000 Bruxelles", "Rue Américaine 25, 1060 Bruxelles"].sample,
       description: Faker::ChuckNorris.fact,
       price: rand(18..104) * 5 } )
     car.user = user

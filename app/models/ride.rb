@@ -9,5 +9,4 @@ class Ride < ApplicationRecord
    def end_time
     self.end_date ##Wheredateart' is a attribute of type 'Date' accessible through MyModel's relationship
   end
-
 end

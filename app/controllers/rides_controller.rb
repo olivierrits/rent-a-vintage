@@ -3,6 +3,8 @@ class RidesController < ApplicationController
 
   def new
     @ride = Ride.new
+    @car = Car.find(params[:car_id])
+    @start_date = params[:start_date].to_date
   end
 
   def index
@@ -17,8 +19,9 @@ class RidesController < ApplicationController
   def create
     @ride = Ride.new(ride_params)
     @ride.user = current_user
+    @car = @ride.car
     if @ride.save
-      redirect_to ride_path(@ride)
+      redirect_to user_dashboard_path
     else
       render :new
     end

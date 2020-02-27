@@ -1,12 +1,13 @@
 class CarsController < ApplicationController
   def index
-    @car = Car.all
+    @cars = Car.all
   end
 
   def show
     @car = Car.find(params[:id])
     @ride = Ride.new()
     @rides = Ride.where(car: @car)
+    @rating = rand(1..5)
     # start_date1 = Time.new(2020,3,3).to_date
     # end_date1 = Time.new(2020,3,5).to_date
     # start_date2 = Time.new(2020,3,10).to_date

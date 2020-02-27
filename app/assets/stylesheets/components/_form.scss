@@ -1,5 +1,5 @@
 .form {
-  background-image: url("https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2017/05/30095030/Vespa-400-Mate-Boer-21-1000x524.jpg");
+  background-image: url('/assets/images/form-background.jpg');
   background-size: cover;
   background-position: 40% 60%;
   padding: 200px 0;
@@ -24,7 +24,7 @@
 }
 
 .background-form {
-  background-image : url("https://ccnwordpress.blob.core.windows.net/journal/2019/05/Zagato-Petrolicious.jpg");
+  background-image : url('form-background.jpg');
   background-size: cover;
   background-position: 25% 75%;
   padding-top: 10vw;

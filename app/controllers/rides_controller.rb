@@ -18,12 +18,16 @@ class RidesController < ApplicationController
 
   def create
     @ride = Ride.new(ride_params)
-    @ride.user = current_user
-    @car = @ride.car
-    if @ride.save
-      redirect_to user_dashboard_path
+    if user_signed_in?
+      @ride.user = current_user
+      @car = @ride.car
+      if @ride.save
+        redirect_to user_dashboard_path
+      else
+        render :new
+      end
     else
-      render :new
+      render :sign_up, local: { ride: @ride }
     end
   end
 

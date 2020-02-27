@@ -32,3 +32,4 @@ gem 'devise'
 gem 'faker'
 gem "simple_calendar", "~> 2.0"
 gem 'geocoder'
+gem 'cloudinary', '~> 1.12.0'

@@ -10,6 +10,7 @@
     grid-template-columns: 1fr;
   }
 }
+
 @media(min-width: 992px) {
   .cards {
   grid-template-columns: 1fr 1fr 1fr 1fr;
@@ -29,6 +30,14 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   margin: 20px;
+  a {
+    text-decoration: none;
+    color: #525349;
+    &:hover{
+      color: #988f7a;
+      text-decoration: none;
+    }
+  }
 }
 
 .card > img {

@@ -1,22 +1,33 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/12/05134339/Andrea-Casano-rare-Fiat-600s-meetup-44-1000x666.jpg);">
-</div>
-
-<div class="container">
-  <h1>Users#dashboard</h1>
-
-  <div class="row">
-    <% @cars.each do |car| %>
-      <div class="col-12 col-md-6 col-lg-3">
-        <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/500x400/?cocktail');">
-          <div class="card-description">
-            <h2><%= link_to car.name, car_path(car) %></h2>
-          </div>
-        </div>
-      </div>
-    <% end %>
+<div class="dashboard-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2018/11/15101816/Marco-Annunziata-Fiat-Dino-Spider-2400-15-1440x960.jpg);">
+  <div class="container">
+    <h1>Welcome to your <strong>dashboard</strong></h1>
   </div>
-
-
+</div>
+<div class="column">
+  <div>
+    <h1>Your rides</h1>
+    <p>The list of the rides you booked</p>
+    <div class="card-product">
+      <% @rides.each do |ride| %>
+        <%= render 'shared/ride_card', ride: ride %>
+      <% end %>
+    </div>
+  </div>
+  <div>
+    <h1>Your cars</h1>
+    <p>List of the cars you rent</p>
+    <div class="your-car-dashboard">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        Total amount
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        Total amount
+      </div>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
+        Total amount
+      </div>
+    </div>
+  </div>
 </div>
 
 

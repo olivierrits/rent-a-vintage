@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-lg-6">
+    <div class="col-sm-12 col-lg-8">
       <table>
         <tr>
           <th>Brand</th>
@@ -27,20 +27,39 @@
         </tr>
       </table>
     </div>
-    <div class="col-sm-12 col-lg-6">
+    <div>
+      <% i = 0 %>
       <%= month_calendar events: @rides do |date, rides| %>
-        <div class="day-cell">
-          <%= link_to date.day, "#" %>
-          <% @rides.each do |ride| %>
-            <% if (ride.start_date < date) && date < ride.end_date %>
-              <div style="color: red;">X</div>
-            <% end %>
+        <% available = false  %>
+        <% @rides.each do |ride| %>
+          <% if (ride.start_date < date) && date < ride.end_date %>
+            <% available = true %>
           <% end %>
-        </div>
+        <% end %>
+        <% if available %>
+          <div class="day-cell" style="background-color: darkgray; color: white; text-align: center">
+            <span><%= date.day %></span>
+          </div>
+        <% elsif (i < 7) && (date.day > 20) %>
+          <div class="day-cell calendar-off" >
+            <%= date.day %>
+          </div>
+        <% elsif (i > 20) && (date.day < 10) %>
+          <div class="day-cell calendar-off">
+            <%= date.day %>
+          </div>
+        <% else %>
+          <div class="day-cell" style="text-align: center" >
+            <%= link_to date.day, "/cars/#{@car.id}?#{date}" %>
+          </div>
+        <% end %>
+        <% i += 1 %>
       <% end %>
     </div>
   </div>
 </div>
+
+<p><%= "i = #{i}" %></p>
 
 <br><hr>
 <%= link_to "Edit the car", edit_car_path(@car), class: "btn-primary" %>

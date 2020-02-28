@@ -3,36 +3,66 @@
     <h1>Welcome to your <strong>dashboard</strong></h1>
   </div>
 </div>
+
 <div class="column">
   <% if !@rides.empty? %>
     <div>
-      <h1>Your rides</h1>
+      <h1>Your rides!</h1>
       <p>The list of the rides you booked</p>
-      <div class="card-product">
+      <div class="card-product" style="background-color: lightgray; margin: 10px;">
         <% @rides.each do |ride| %>
           <%= render 'shared/ride_card', ride: ride %>
         <% end %>
       </div>
     </div>
   <% else %>
-    <h3>You didn't booked any car yet</h3>
+    <div style="text-align:center; background-color: lightgray; margin: 10px;">
+      <h3>You didn't booked any car yet</h3>
+      <div class="btn-landing">
+        <%= link_to "Starting booking a ride", root_path %>
+      </div>
+    </div>
   <% end %>
 
-  <div>
-    <h1>The cars you rent</h1>
-    <% if !@cars.empty? %>
-      <div class="card-product">
-        <% @rides.each do |ride| %>
-          <%= render 'shared/ride_card', ride: ride %>
+  <% if !@cars.empty? %>
+    <div>
+      <h1>Your cars!</h1>
+      <div class="card-product" style="background-color: lightgray; margin: 10px;">
+        <% @cars.each do |car| %>
+          <div style= "display: flex; justify-content: center; align-items: center background-color: steelblue">
+            <div style="text-align: center; vertical-align: center; width: 100px" class="dashboard-car">
+              <p style="font-size: 1.1rem; font-weight: bold;"><%= link_to "#{car.name}", car_path(car) %></p>
+              <span style="font-style: italic; font-size: 0.7rem;"><%= "#{car.brand} | #{car.model} | #{car.year}" %></span>
+            </div>
+            <div class="dashboard-car" style="display: flex; justify-content: center; align-items: center">
+              <h5><%= "#{car.price} €" %></h5>
+            </div>
+            <div class="dashboard-car" style="display: flex; justify-content: center; align-items: center">
+              <h5><%= "#{Ride.where(user: current_user).length} rides" %></h5>
+            </div>
+             <div class="dashboard-car" style="display: flex; justify-content: center; align-items: center">
+              <% rating = rand(1..5) %>
+              <% rating.times do%>
+                <%= image_tag("vintage-gold", :alt => "*", class: "car-rating") %>
+              <% end %>
+              <% (5 - rating).times do%>
+                <%= image_tag("vintage-gray", :alt => "*", class: "car-rating") %>
+              <% end %>
+            </div>
+          </div>
         <% end %>
       </div>
-    <% else %>
-      <p>You don't rent any car yet,</p>
-      <p>gain money by renting your vintage car</p>
-      <%= link_to "Register my car", "/cars/new", class: "btn-rent" %>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <div style="text-align:center; background-color: lightgray; margin: 10px;">
+      <h3>You don't rent any car yet!</h3>
+      <div class="btn-landing">
+        <%= link_to "Register my car", "/cars/new" %>
+      </div>
+    </div>
+  <% end %>
 </div>
+
 
 
 

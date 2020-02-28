@@ -27,7 +27,7 @@ class RidesController < ApplicationController
         render :new
       end
     else
-      render :sign_up, local: { ride: @ride }
+      redirect_to user_landing_path
     end
   end
 

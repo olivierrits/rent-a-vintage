@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'users/dashboard', to: 'users#dashboard', as: 'user_dashboard'
+  get 'users/landing', to: 'users#landing', as: 'user_landing'
   # delete '/users', to: 'devise/registrations#destroy', as: 'destroy_account'
   devise_for :users
   root to: 'pages#home'

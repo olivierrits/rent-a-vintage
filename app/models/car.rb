@@ -3,7 +3,7 @@ class Car < ApplicationRecord
   has_many :rides, dependent: :destroy
   has_many :reviews, dependent: :destroy
 
-  validates :name, :brand, :model, :year, :description, :price, :address, presence: true
+  validates :name, :brand, :model, :year, :description, :price, presence: true
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?

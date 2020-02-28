@@ -17,7 +17,7 @@
     <% end %>
     <% car_rating /= i if i != 0 %>
     <div class="card">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <%= image_tag "#{rand(1..7)}.jpg" %>
       <div class="card-infos">
         <div>
           <h2><%= link_to car.name, car_path(car) %></h2>

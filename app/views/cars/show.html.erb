@@ -24,6 +24,32 @@
           <td><%= @car.price %></td>
         </tr>
         <tr>
+          <th>rating</th>
+          <td>
+            <% car_rating = 0 %>
+            <% i =  0 %>
+            <% Review.where(car: @car).each do |rating| %>
+              <% car_rating += rating %>
+              <% i += 1 %>
+            <% end %>
+            <% car_rating /= i if i != 0 %>
+            <% if Review.where(car: @car) == [] %>
+              <div class="no-rating-show">
+                <span>no rating yet</span>
+              </div>
+            <% else %>
+              <div class="rating-show">
+                <% rating.times do%>
+                  <%= image_tag("vintage-gold", :alt => "*") %>
+                <% end %>
+                <% (5 - rating).times do%>
+                  <%= image_tag("vintage-gray", :alt => "*") %>
+                <% end %>
+              </div>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
           <th>Address</th>
           <td><%= @car.address %></td>
         </tr>

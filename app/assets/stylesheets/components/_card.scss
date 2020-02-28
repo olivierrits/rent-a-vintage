@@ -96,3 +96,25 @@
   left: 40px;
   bottom: 10px;
 }
+
+.no-rating {
+  width: 100px;
+  position: absolute;
+  left: 20px;
+  bottom: 10px;
+  color: gray;
+  font-style: italic;
+}
+
+.rating-show {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60px;
+}
+
+.no-rating-show {
+  width: 100px;
+  color: gray;
+  font-style: italic;
+}

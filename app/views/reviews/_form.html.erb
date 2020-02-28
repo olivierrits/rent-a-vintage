@@ -9,6 +9,8 @@
 
     <%= f.input :comment, placeholder:"Please enter your comment here" %>
     <%= f.submit "Submit your review", class: "btn btn-default" %>
+
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   <% end %>
 
   <div class="btn btn-back" style="margin: 16px 0;">

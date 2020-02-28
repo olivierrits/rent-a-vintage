@@ -1,0 +1,12 @@
+<div class="card-product-infos">
+  <img class="car-img" src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="car-second-column">
+    <h2 class="car-name"><%= link_to ride.car.name, car_path(ride.car) %></h2>
+    <p><%= ride.car.name %></p>
+  </div>
+  <div class="card-product-details">
+      <p><%= ride.start_date %></p>
+      <p><%= ride.car.name %></p>
+      <h2 class="card-pricing"><%= ride.car.price %>€</h2>
+  </div>
+</div>

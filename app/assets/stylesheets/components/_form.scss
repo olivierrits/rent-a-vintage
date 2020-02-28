@@ -1,5 +1,5 @@
 .form {
-  background-image: url("https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2017/05/30095030/Vespa-400-Mate-Boer-21-1000x524.jpg");
+  background-image: url('/assets/images/form-background.jpg');
   background-size: cover;
   background-position: 40% 60%;
   padding: 200px 0;
@@ -10,7 +10,6 @@
 .form-title h1 {
   margin: 0;
   color: #525349;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
   text-align: center;
@@ -20,11 +19,10 @@
   font-size: 16px;
   color: #525349;
   opacity: 1;
-  text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
 }
 
 .background-form {
-  background-image : url("https://ccnwordpress.blob.core.windows.net/journal/2019/05/Zagato-Petrolicious.jpg");
+  background-image : url('form-background.jpg');
   background-size: cover;
   background-position: 25% 75%;
   padding-top: 10vw;
@@ -65,6 +63,7 @@
   cursor: pointer;
   color: white;
   background-color: #b11c26;
+  border: 3px solid white;
   .btn-update {
    opacity: 1;
    // color: inherit !important;

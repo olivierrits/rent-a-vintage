@@ -7,28 +7,26 @@
   </div>
 </div>
 
-<!--
-<%= simple_form_for :search, url: root_path, method: :get do |f| %>
-  <div class="search-form-control form-group">
-    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-    <button name="button" type="submit" class="btn btn-flat">
-      <i class="fas fa-search"></i> Search
-    </button>
-  </div>
-<% end %>
--->
-
 <div class="cards">
-  <% @car.each do |car| %>
+  <% @cars.each do |car| %>
+    <% rating = rand(1..5) %>
     <div class="card">
       <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
       <div class="card-infos">
         <div>
           <h2><%= link_to car.name, car_path(car) %></h2>
-          <p><%= car.name %></p>
+          <p><%= "#{car.brand} | #{car.model} | #{car.year}" %></p>
         </div>
         <h2 class="card-pricing"><%= car.price %>€</h2>
         <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+        <div class="cards-rating">
+          <% rating.times do%>
+            <%= image_tag("vintage-gold", :alt => "*") %>
+          <% end %>
+          <% (5 - rating).times do%>
+            <%= image_tag("vintage-gray", :alt => "*") %>
+          <% end %>
+        </div>
       </div>
     </div>
   <% end %>

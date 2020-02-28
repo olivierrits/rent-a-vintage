@@ -3,4 +3,8 @@ class UsersController < ApplicationController
     @user = current_user
     @cars = Car.where(user: @user)
   end
+
+  def landing
+  end
+
 end

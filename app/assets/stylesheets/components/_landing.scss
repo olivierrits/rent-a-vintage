@@ -1,0 +1,48 @@
+.landing {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.sign-in {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10px;
+  padding: 0;
+  width: 400px !important;
+  height: 400px;
+}
+
+.sign-up {
+  background-image: url('sign_up.jpg');
+  background-size: cover;
+
+}
+
+.login {
+  background-image: url('login.jpg');
+  background-size: cover;
+}
+
+.landing-choice {
+  opacity: 0.7;
+  width: 400px;
+  height: 90px;
+  background-color: white;
+  position: absolute;
+  bottom: 30px;
+  padding: 10px;
+  text-align: center;
+  color: steelblue;
+  font-size: 1,5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.landing-choice p {
+  margin: 3px auto 3px !important;
+}

@@ -62,3 +62,27 @@
   opacity: 1;
   color: #b11c26;
 }
+
+.btn-landing {
+  color: steelblue;
+  font-weight: bold;
+  width: 300px;
+  padding: 5px 30px;
+  border-radius: 1px;
+  font-weight: normal;
+  opacity: 0.9;
+  transition: opacity 0.7s ease;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.btn-landing:hover {
+  background-color: steelblue;
+  opacity: 0.9;
+}
+
+.btn-landing:hover a {
+  color: white;
+}
+
+

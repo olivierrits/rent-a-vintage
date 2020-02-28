@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-lg-8">
-      <h2><%= @car.name %></h2>
+      <h2><strong><%= @car.name %></strong></h2>
       <table>
         <tr>
           <th>Brand</th>
@@ -24,7 +24,7 @@
           <td><%= @car.price %></td>
         </tr>
         <tr>
-          <th>rating</th>
+          <th>Rating</th>
           <td>
             <% car_rating = 0 %>
             <% i =  0 %>
@@ -57,7 +57,7 @@
           <div
       id="map"
       style="width: 100%;
-      height: 300px; margin-top: 20px"
+      height: 300px; margin-top: 20px; margin-bottom: 30px"
       data-markers="<%= [@marker].to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
@@ -100,17 +100,10 @@
           <%= f.submit "Book your ride now!", class: "btn btn-primary" %>
         <% end %>
       </div>
+      <br>
       <div class="small" style="margin: 16px 0;">
         <%= link_to "Go back to your rides without saving", rides_path %>
       </div>
     </div>
   </div>
 </div>
-
-<br><hr>
-<%= link_to "Edit the car", edit_car_path(@car), class: "btn-primary" %>
-<br><hr><br>
-<%= link_to raw('<i class="fas fa-trash-alt"></i>'), car_path(@car), method: :delete %>
-<br><hr><br>
-<%= link_to "Car List", cars_path %>
-

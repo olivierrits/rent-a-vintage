@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_27_162423) do
+ActiveRecord::Schema.define(version: 2020_02_28_104054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_162423) do
     t.string "model"
     t.integer "year"
     t.text "description"
-    t.bigint "user_id"
+    t.bigint "owner_id"
     t.date "availabilty", default: [], array: true
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_162423) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
-    t.index ["user_id"], name: "index_cars_on_user_id"
+    t.index ["owner_id"], name: "index_cars_on_owner_id"
   end
 
   create_table "reviews", force: :cascade do |t|
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 2020_02_27_162423) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "cars", "users"
+  add_foreign_key "cars", "users", column: "owner_id"
   add_foreign_key "reviews", "cars"
   add_foreign_key "reviews", "users"
   add_foreign_key "rides", "cars"

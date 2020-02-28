@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
-  has_many :cars, dependent: :destroy, as: :owner_id
+  
+  has_many :cars, foreign_key: :owner_id, dependent: :destroy
+  has_many :rides, dependent: :destroy
   # validates :license_number, uniqueness: true
 end

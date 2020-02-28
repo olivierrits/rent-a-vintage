@@ -5,8 +5,11 @@
       <p>Please fill in all the fields and click "Confirm your ride". </p>
   </div>
 
+  <%= "Car is #{@car.name}" %>
+
   <%= simple_form_for @ride do |f| %>
     <%= f.association :car, :selected => @car.id, disabled: true %>
+    <%= f.association :car, :selected => @car.id, as: :hidden, input_html: { value: @car.id } %>
     <%= f.input :start_date, :selected => @start_date, disabled: false %>
     <%= f.input :end_date, :selected => @start_date, disabled: false %>
     <%= f.submit "Confirm your ride", class: "btn btn-primary" %>

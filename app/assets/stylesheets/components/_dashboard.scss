@@ -1,0 +1,149 @@
+@media(max-width: 992px) {
+  .column {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .column {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(min-width: 992px) {
+  .column {
+  grid-template-columns: 1fr 1fr;
+  }
+}
+
+.column {
+  display: grid;
+  grid-gap: 16px;
+  p {
+    text-align: center;
+  }
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.column h1 {
+  padding-top: 5px;
+  color: #525349;
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.column p {
+  font-size: 16px;
+  color: #525349;
+  opacity: 1;
+}
+
+@media(max-width: 992px) {
+  .card-product {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .card-product {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(min-width: 992px) {
+  .card-product {
+  grid-template-columns: 1fr;
+  }
+}
+
+.card-product {
+  overflow: hidden;
+  height: 100%;
+  background: white;
+  display: grid;
+}
+
+.card-product img {
+  height: 10vw;
+  width: 10vw;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product-infos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .car-img{
+    flex-grow: 1;
+  }
+  .car-second-column{
+    flex-grow: 1;
+  }
+  .car-name{
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: #525349;
+      &:hover{
+        color: #988f7a;
+        text-decoration: none;
+      }
+    }
+  }
+  .card-product-details {
+    flex-grow: 3;
+    h2 {
+      text-align: right;
+      padding-right: 10vw;
+    }
+  }
+}
+
+.card-product-infos {
+  overflow: hidden;
+  height: 10vw;
+  background: white;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  display: flex;
+  margin: 20px;
+}
+
+.your-car-dashboard {
+  height: 50%;
+}
+
+.card-category {
+  margin: 10px;
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+

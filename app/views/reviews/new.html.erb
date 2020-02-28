@@ -1,0 +1,20 @@
+<div class="background-form">
+  <div class="form-square">
+    <div class="form-title" style="padding:15px; text-align:center;">
+      <h1>How was your experience?</h1>
+      <p>Please leave a comment and click "Submit your review". </p>
+    </div>
+
+    <%= simple_form_for [@car, @review] do |f| %>
+      <%= f.label :rating %>
+      <%= f.select :rating, options_for_select([["Please select one", ""], 5, 4, 3, 2, 1]) %>
+      <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+      <%= f.input :comment, placeholder:"Please enter your comment here" %>
+      <%= f.submit "Submit your review", class: "btn btn-warning" %>
+    <% end %>
+
+    <div class="btn btn-back" style="margin: 16px 0;">
+      <%= link_to "Go back to the car list without saving", root_path %>
+    </div>
+  </div>
+</div>

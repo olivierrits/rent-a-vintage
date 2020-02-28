@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-lg-8">
-      <h2><strong><%= @car.name %></strong></h2>
+    <div class="col-sm-12 col-lg-8" style="margin-top: 20px;">
+      <h2><strong><%= @car.name.capitalize %></strong></h2>
       <table>
         <tr>
           <th>Brand</th>
@@ -26,18 +26,16 @@
         <tr>
           <th>Rating</th>
           <td>
-            <% car_rating = 0 %>
-            <% i =  0 %>
-            <% Review.where(car: @car).each do |rating| %>
-              <% car_rating += rating %>
-              <% i += 1 %>
-            <% end %>
-            <% car_rating /= i if i != 0 %>
-            <% if Review.where(car: @car) == [] %>
-              <div class="no-rating-show">
-                <span>no rating yet</span>
-              </div>
-            <% else %>
+            <%# car_rating = 0 %>
+            <%# i =  0 %>
+            <%# Review.where(car: @car).each do |rating| %>
+              <%# car_rating += rating %>
+              <%# i += 1 %>
+            <%# end %>
+            <%# car_rating /= i if i != 0 %>
+            <%# if Review.where(car: @car) == [] %>
+            <%# else %>
+              <% rating = rand(1..5) %>
               <div class="rating-show">
                 <% rating.times do%>
                   <%= image_tag("vintage-gold", :alt => "*") %>
@@ -46,7 +44,7 @@
                   <%= image_tag("vintage-gray", :alt => "*") %>
                 <% end %>
               </div>
-            <% end %>
+            <%# end %>
           </td>
         </tr>
         <tr>
@@ -62,7 +60,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
     </div>
-    <div>
+    <div style="margin-top: 20px;">
       <h4>Availability</h4>
       <% i = 0 %>
       <%= month_calendar events: @rides do |date, rides| %>
@@ -102,7 +100,7 @@
       </div>
       <br>
       <div class="small" style="margin: 16px 0;">
-        <%= link_to "Go back to your rides without saving", rides_path %>
+        <%= link_to "Go back to the car list without saving", root_path %>
       </div>
     </div>
   </div>

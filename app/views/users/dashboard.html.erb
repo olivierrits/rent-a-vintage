@@ -4,29 +4,33 @@
   </div>
 </div>
 <div class="column">
-  <div>
-    <h1>Your rides</h1>
-    <p>The list of the rides you booked</p>
-    <div class="card-product">
-      <% @rides.each do |ride| %>
-        <%= render 'shared/ride_card', ride: ride %>
-      <% end %>
-    </div>
-  </div>
-  <div>
-    <h1>Your cars</h1>
-    <p>List of the cars you rent</p>
-    <div class="your-car-dashboard">
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-        Total amount
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-        Total amount
-      </div>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3))">
-        Total amount
+  <% if !@rides.empty? %>
+    <div>
+      <h1>Your rides</h1>
+      <p>The list of the rides you booked</p>
+      <div class="card-product">
+        <% @rides.each do |ride| %>
+          <%= render 'shared/ride_card', ride: ride %>
+        <% end %>
       </div>
     </div>
+  <% else %>
+    <h3>You didn't booked any car yet</h3>
+  <% end %>
+
+  <div>
+    <h1>The cars you rent</h1>
+    <% if !@cars.empty? %>
+      <div class="card-product">
+        <% @rides.each do |ride| %>
+          <%= render 'shared/ride_card', ride: ride %>
+        <% end %>
+      </div>
+    <% else %>
+      <p>You don't rent any car yet,</p>
+      <p>gain money by renting your vintage car</p>
+      <%= link_to "Register my car", "/cars/new", class: "btn-rent" %>
+    <% end %>
   </div>
 </div>
 

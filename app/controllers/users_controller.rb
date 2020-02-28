@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @rides = Ride.where(user: @user)
     # @start_date = params[:start_date].to_date
   end
+
+  def landing
+  end
+
 end

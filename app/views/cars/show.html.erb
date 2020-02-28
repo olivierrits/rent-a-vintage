@@ -1,7 +1,9 @@
+<div class="show-banner"></div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-12 col-lg-8" style="margin-top: 20px;">
-      <h2><strong><%= @car.name.capitalize %></strong></h2>
+    <div class="col-sm-12 col-lg-8">
+      <h2 id="show-title"><strong><%= @car.name.capitalize %></strong></h2>
+      <div style="display:  grid; grid-template-columns:  1fr 1fr;">
       <table>
         <tr>
           <th>Brand</th>
@@ -52,6 +54,8 @@
           <td><%= @car.address %></td>
         </tr>
       </table>
+      <%= image_tag "#{rand(1..7)}.jpg", width: 300, style: "justify-self: flex-end;" %>
+      </div>
           <div
       id="map"
       style="width: 100%;
@@ -60,7 +64,7 @@
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
     ></div>
     </div>
-    <div style="margin-top: 20px;">
+    <div class="calendar">
       <h4>Availability</h4>
       <% i = 0 %>
       <%= month_calendar events: @rides do |date, rides| %>
@@ -95,12 +99,12 @@
           <%= f.input :car_id, :as => :hidden, :input_html => { :value => @car.id } %>
           <%= f.input :start_date %>
           <%= f.input :end_date %>
-          <%= f.submit "Book your ride now!", class: "btn btn-primary" %>
+          <%= f.submit "Book your ride now!", class: "btn-book"%>
         <% end %>
       </div>
       <br>
       <div class="small" style="margin: 16px 0;">
-        <%= link_to "Go back to the car list without saving", root_path %>
+        <%= link_to "Go back to the car list without saving", root_path, class: "btn-back" %>
       </div>
     </div>
   </div>

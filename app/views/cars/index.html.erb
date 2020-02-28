@@ -9,27 +9,23 @@
 
 <div class="cards">
   <% @cars.each do |car| %>
-    <% car_rating = 0 %>
-    <% i =  0 %>
-    <% Review.where(car: car).each do |rating| %>
-      <% car_rating += rating %>
-      <% i += 1 %>
-    <% end %>
-    <% car_rating /= i if i != 0 %>
+    <%# car_rating = 0 %>
+    <%# i =  0 %>
+    <%# Review.where(car: car).each do |rating| %>
+      <%# car_rating += rating %>
+      <%# i += 1 %>
+    <%# end %>
+    <%# car_rating /= i if i != 0 %>
+    <% rating = rand(1..5) %>
     <div class="card">
-      <%= image_tag "#{rand(1..7)}.jpg" %>
+      <%= image_tag "#{rand(1..24)}.jpg" %>
       <div class="card-infos">
         <div>
           <h2><%= link_to car.name, car_path(car) %></h2>
           <p><%= "#{car.brand} | #{car.model} | #{car.year}" %></p>
         </div>
         <h2 class="card-pricing"><%= car.price %>€</h2>
-        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
-        <% if Review.where(car: car) == [] %>
-          <div class="no-rating">
-            <p>no rating yet</p>
-          </div>
-        <% else %>
+        <img src="https://kitt.lewagon.com/placeholder/users/random" class="card-user avatar-bordered" />
           <div class="cards-rating">
             <% rating.times do%>
               <%= image_tag("vintage-gold", :alt => "*") %>
@@ -38,7 +34,6 @@
               <%= image_tag("vintage-gray", :alt => "*") %>
             <% end %>
           </div>
-        <% end %>
       </div>
     </div>
   <% end %>

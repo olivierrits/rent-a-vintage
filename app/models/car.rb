@@ -1,7 +1,7 @@
 class Car < ApplicationRecord
-  belongs_to :user
-  has_many :rides
-  has_many :reviews
+  belongs_to :owner, class_name: "User"
+  has_many :rides, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :name, :brand, :model, :year, :description, :price, :address, presence: true
 

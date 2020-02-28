@@ -6,8 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
+User.destroy_all
 
-user = User.first
+puts 'Creating 100 fake user with password "password"...'
+10.times do
+  user = User.new(
+    { email:    Faker::Internet.email,
+    password: "password",
+    password_confirmation: "password",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    license_number: rand(10_000_000..99_999_999) })
+  user.save!
+end
+
+owner = User.first
 
 car1 = Car.new(
   { name: 'Big Johnny',
@@ -39,25 +52,13 @@ car3 = Car.new(
     address: 'Rue Dieudonné Lefèvre 37, 1020 Bruxelles' }
 )
 
-car1.user = user
-car2.user = user
-car3.user = user
+car1.owner = owner
+car2.owner = owner
+car3.owner = owner
 
 car1.save!
 car2.save!
 car3.save!
-
-puts 'Creating 100 fake user with password "password"...'
-10.times do
-  user = User.new(
-    { email:    Faker::Internet.email,
-    password: "password",
-    password_confirmation: "password",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    license_number: rand(10_000_000..99_999_999) })
-  user.save!
-end
 
 User.all.each do |user|
   number = rand(0..3)
@@ -70,7 +71,7 @@ User.all.each do |user|
       address: ["Rue Scarron 50, 1050 Ixelles", "Avenue Paul Dejaer 29, 1060 Brussels", "Avenue Van Volxem 354, 1190 Forest", "Rue de la Régence 3, 1000 Bruxelles", "Rue Américaine 25, 1060 Bruxelles"].sample,
       description: Faker::ChuckNorris.fact,
       price: rand(18..104) * 5 } )
-    car.user = user
+    car.owner = user
     car.save!
   end
 end

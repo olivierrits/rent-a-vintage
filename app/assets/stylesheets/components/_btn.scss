@@ -85,4 +85,21 @@
   color: white;
 }
 
+.btn-rent {
+  color: #525349;
+  border: 3px solid #525349;
+  padding: 6px 24px;
+  border-radius: 1px;
+  font-weight: normal;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
 
+.btn-rent:hover {
+  opacity: 1;
+  background-color: #b11c26;
+  color: white;
+  border: 3px solid #b11c26;
+  text-decoration: none;
+}

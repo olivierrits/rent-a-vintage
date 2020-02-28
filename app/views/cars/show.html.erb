@@ -28,6 +28,13 @@
           <td><%= @car.address %></td>
         </tr>
       </table>
+          <div
+      id="map"
+      style="width: 100%;
+      height: 300px; margin-top: 20px"
+      data-markers="<%= [@marker].to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+    ></div>
     </div>
     <div>
       <h4>Availability</h4>
@@ -80,6 +87,4 @@
 <%= link_to raw('<i class="fas fa-trash-alt"></i>'), car_path(@car), method: :delete %>
 <br><hr><br>
 <%= link_to "Car List", cars_path %>
-
-
 

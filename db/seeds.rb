@@ -7,6 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+User.destroy_all
+
+puts 'Creating 100 fake user with password "password"...'
+10.times do
+  user = User.new(
+    { email:    Faker::Internet.email,
+    password: "password",
+    password_confirmation: "password",
+    first_name: Faker::Name.first_name,
+    last_name: Faker::Name.last_name,
+    license_number: rand(10_000_000..99_999_999) })
+  user.save!
+end
+
 user = User.first
 
 car1 = Car.new(
@@ -46,18 +60,6 @@ car3.user = user
 car1.save!
 car2.save!
 car3.save!
-
-puts 'Creating 100 fake user with password "password"...'
-10.times do
-  user = User.new(
-    { email:    Faker::Internet.email,
-    password: "password",
-    password_confirmation: "password",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    license_number: rand(10_000_000..99_999_999) })
-  user.save!
-end
 
 User.all.each do |user|
   number = rand(0..3)

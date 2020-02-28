@@ -8,6 +8,12 @@ class CarsController < ApplicationController
     @ride = Ride.new()
     @rides = Ride.where(car: @car)
     @rating = rand(1..5)
+    @marker = {
+        lat: @car.latitude,
+        lng: @car.longitude,
+        # infoWindow: render_to_string(partial: "info_window", locals: { car: @car }),
+        #image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+      }
     # start_date1 = Time.new(2020,3,3).to_date
     # end_date1 = Time.new(2020,3,5).to_date
     # start_date2 = Time.new(2020,3,10).to_date

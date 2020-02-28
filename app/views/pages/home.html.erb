@@ -1,6 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
 
-<!-- Test to push Thibaut Moreau -->
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://d39a3h63xew422.cloudfront.net/wp-content/uploads/2019/12/05134339/Andrea-Casano-rare-Fiat-600s-meetup-44-1000x666.jpg);">
+  <div class="container">
+    <h1>Rent a <strong>Vintage</strong></h1>
+    <p>Select your dream car and go for an unforgetable ride</p>
+    <%= link_to "Select your dream car", "#", class: "btn-banner" %>
+  </div>
+</div>
 
-<!-- Test test test -->
+<div class="cards">
+  <% @cars.each do |car| %>
+    <% rating = rand(1..5) %>
+    <div class="card">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+      <div class="card-infos">
+        <div>
+          <h2><%= link_to car.name, car_path(car) %></h2>
+          <p><%= "#{car.brand} | #{car.model} | #{car.year}" %></p>
+        </div>
+        <h2 class="card-pricing"><%= car.price %>€</h2>
+        <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-user avatar-bordered" />
+        <div class="cards-rating">
+          <% rating.times do%>
+            <%= image_tag("vintage-gold", :alt => "*") %>
+          <% end %>
+          <% (5 - rating).times do%>
+            <%= image_tag("vintage-gray", :alt => "*") %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
